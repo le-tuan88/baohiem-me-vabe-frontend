@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,21 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        {/* Header - Pink Pastel */}
-        <header className="bg-brand-pink text-brand-text shadow-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-              <Heart className="text-rose-500 fill-rose-500" />
-              <span>Mẹ & Bé</span>
-            </Link>
-            <nav className="hidden md:flex gap-6 font-medium">
-              <Link href="/" className="hover:text-rose-600 transition-colors">Trang chủ</Link>
-              <Link href="/blog" className="hover:text-rose-600 transition-colors">Kiến thức</Link>
-              <Link href="/quy-trinh-boi-thuong" className="hover:text-rose-600 transition-colors">Bồi thường</Link>
-              <Link href="/lien-he" className="hover:text-rose-600 transition-colors">Liên hệ</Link>
-            </nav>
-          </div>
-        </header>
+        {/* Header */}
+        <Navbar />
 
         {/* Main Content */}
         <main className="flex-grow">

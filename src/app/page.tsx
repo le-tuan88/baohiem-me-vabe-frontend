@@ -1,180 +1,202 @@
 "use client";
 
-import * as motion from "framer-motion/client";
-import { ShieldCheck, HeartHandshake, Clock, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ShieldCheck, UserCheck, Clock, ArrowRight, Star, HeartHandshake, Baby, Users, FileText } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
-  const features = [
+  const products = [
     {
-      icon: <ShieldCheck className="w-10 h-10 text-rose-500 mb-4" />,
-      title: "Chuyên viên kinh nghiệm",
-      description: "Đội ngũ tư vấn viên hơn 10 năm kinh nghiệm tư vấn chuyên biệt các gói bảo hiểm dành cho mẹ và bé."
+      title: "Bảo hiểm Thai sản",
+      desc: "Sinh con nhẹ tênh tại các BV Quốc tế hàng đầu. Chi trả trọn gói chi phí sinh nở.",
+      icon: <HeartHandshake className="w-12 h-12 text-rose-500 mb-4" />,
+      link: "/bao-hiem-thai-san",
+      color: "border-rose-200 hover:border-rose-400 bg-rose-50/30"
     },
     {
-      icon: <HeartHandshake className="w-10 h-10 text-rose-500 mb-4" />,
-      title: "Đồng hành trọn đời",
-      description: "Không chỉ lúc mua nghiệm, chúng tôi cam kết sát cánh cùng gia đình bạn trong suốt hành trình bảo vệ."
+      title: "Bảo hiểm Nhi khoa",
+      desc: "Bảo vệ toàn diện cho bé yêu trước các rủi ro bệnh lý, tai nạn. Quyền lợi cao.",
+      icon: <Baby className="w-12 h-12 text-emerald-500 mb-4" />,
+      link: "/nhi-khoa",
+      color: "border-emerald-200 hover:border-emerald-400 bg-emerald-50/30"
     },
     {
-      icon: <Clock className="w-10 h-10 text-rose-500 mb-4" />,
-      title: "Xử lý bồi thường nhanh",
-      description: "Cam kết hỗ trợ làm hồ sơ bồi thường nhanh chóng, minh bạch và tối đa hóa quyền lợi khách hàng."
+      title: "Combo Gia đình",
+      desc: "Bảo vệ sức khỏe cho cả nhà. Tiết kiệm chi phí với gói combo ưu đãi từ Dai-ichi Life.",
+      icon: <Users className="w-12 h-12 text-indigo-500 mb-4" />,
+      link: "/combo-gia-dinh",
+      color: "border-indigo-200 hover:border-indigo-400 bg-indigo-50/30"
     }
   ];
 
-  const mockBlogs = [
-    {
-      id: 1,
-      title: "Cần chuẩn bị gì trước khi mua bảo hiểm thai sản?",
-      excerpt: "Những lưu ý quan trọng để tối ưu hóa quyền lợi bảo hiểm khi chuẩn bị sinh em bé...",
-      date: "12/10/2026",
-      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 2,
-      title: "Gói bảo hiểm giáo dục nào tốt nhất cho trẻ sơ sinh?",
-      excerpt: "Phân tích và lựa chọn các giải pháp tích lũy giáo dục an toàn cho tương lai của bé yêu nhà bạn.",
-      date: "05/10/2026",
-      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 3,
-      title: "Quy trình giải quyết quyền lợi viện phí chuẩn y tế",
-      excerpt: "Hướng dẫn chi tiết từ A-Z cách sử dụng thẻ bảo hiểm sức khỏe khi bé yêu phải nhập viện.",
-      date: "28/09/2026",
-      image: "https://images.unsplash.com/photo-1623548981442-70b656a87754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
+  const steps = [
+    { icon: <UserCheck className="w-8 h-8 text-white" />, title: "Tư vấn nhu cầu", desc: "Hiểu rõ mong muốn của gia đình." },
+    { icon: <FileText className="w-8 h-8 text-white" />, title: "Thiết kế giải pháp", desc: "Lên bảng minh họa tối ưu nhất." },
+    { icon: <ShieldCheck className="w-8 h-8 text-white" />, title: "Làm hồ sơ", desc: "Thủ tục nhanh gọn, trực tuyến." },
+    { icon: <Star className="w-8 h-8 text-white" />, title: "Trao hợp đồng", desc: "Đồng hành trọn đời bảo vệ." },
   ];
+
+  const Feedbacks = [
+    { name: "Chị Nguyễn Hằng", role: "Mẹ bỉm sữa", text: "Gói thai sản Dai-ichi giúp mình sinh mổ tại Vinmec hoàn toàn miễn phí. Dịch vụ chăm sóc khách hàng cực kỳ tốt." },
+    { name: "Anh Trần Phong", role: "Trưởng phòng IT", text: "Gói gia đình giúp tôi an tâm làm việc. Hôm trước bé nhà ốm viện phí mấy chục triệu đều được Dai-ichi lo hết." },
+    { name: "Chị Phương Thảo", role: "Kinh doanh tự do", text: "Quy trình bồi thường cực nhanh, chỉ trong 3 ngày qua app là tiền đã nổi tài khoản. Rất hài lòng!" }
+  ]
 
   return (
-    <div className="w-full relative">
-      {/* Hero Section */}
-      <section className="relative w-full overflow-hidden bg-brand-pink/30 py-20 lg:py-32">
-        <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1608625907409-eb44a49db2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
-
-        <div className="container relative z-10 mx-auto px-4 w-full flex flex-col items-center text-center">
+    <div className="w-full relative overflow-hidden">
+      {/* 1. Hero Section */}
+      <section className="relative w-full py-24 lg:py-32 bg-gradient-to-br from-brand-pink/40 to-brand-mint/20">
+        <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-text mb-6 leading-tight">
-              Bảo vệ mầm non tương lai từ <span className="text-rose-500">những điều nhỏ nhất</span>
+            <span className="text-rose-500 font-bold uppercase tracking-widest text-sm md:text-base mb-4 block">Đại lý Dai-ichi Life Việt Nam</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-brand-text mb-6 leading-tight">
+              An Tâm Sức Khỏe <br /> <span className="text-rose-500">Trọn Vẹn Tương Lai</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Cùng Dai-ichi Life kiến tạo một nền tảng vững chắc cho sự phát triển toàn diện của bé yêu. Hãy để chúng tôi đồng hành cùng gia đình bạn.
+            <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
+              Chuyên gia tư vấn các giải pháp bảo hiểm thai sản, sức khỏe nhi khoa và thiết kế các gói bảo vệ toàn diện, phù hợp nhất với tài chính gia đình bạn.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/lien-he" className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto text-center">
-                Đăng Ký Tư Vấn
-              </Link>
-              <Link href="/blog" className="bg-white border-2 border-brand-mint text-brand-text hover:bg-brand-mint hover:text-brand-text px-8 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto text-center">
-                Tìm Hiểu Thêm
+              <a href="https://zalo.me/0901281386" target="_blank" className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-rose-300 transition-all flex justify-center items-center gap-2">
+                Tư Vấn Ngay 0901281386
+              </a>
+              <Link href="/bao-hiem-thai-san" className="bg-white border-2 border-brand-mint text-brand-text hover:bg-brand-mint/50 px-8 py-4 rounded-full font-bold text-lg transition-all flex justify-center items-center">
+                Tìm Hiểu Gói Thai Sản
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
+      {/* 2. Sản phẩm Section */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-rose-500 font-semibold tracking-wider uppercase text-sm">Điểm khác biệt</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mt-2">Tại Sao Chọn Chúng Tôi?</h2>
-            <div className="w-24 h-1 bg-brand-mint mx-auto mt-6 rounded-full"></div>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4">Danh Mục Sản Phẩm</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Các giải pháp bảo vệ được thiết kế tối ưu với mức phí tiết kiệm nhất.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {products.map((prod, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="bg-brand-pink/10 p-8 rounded-3xl border border-brand-pink hover:shadow-xl hover:-translate-y-2 transition-all text-center flex flex-col items-center"
+                className={`p-8 rounded-3xl border-2 transition-all ${prod.color} text-center flex flex-col items-center group`}
               >
-                <div className="bg-white p-4 rounded-full shadow-sm mb-6 inline-flex border border-brand-pink/50">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-brand-text mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                {prod.icon}
+                <h3 className="text-2xl font-bold text-brand-text mb-4 group-hover:text-rose-600 transition-colors">{prod.title}</h3>
+                <p className="text-gray-600 mb-8 flex-grow">{prod.desc}</p>
+                <Link href={prod.link} className="flex items-center gap-2 font-bold text-brand-text hover:text-rose-500">
+                  Xem chi tiết <ArrowRight className="w-5 h-5" />
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-12 bg-brand-mint/20 border-y border-brand-mint/50 overflow-hidden">
+      {/* 3. Quy trình Section */}
+      <section className="py-24 bg-brand-pink/10">
         <div className="container mx-auto px-4">
-          <p className="text-center text-sm text-gray-500 uppercase tracking-widest font-semibold mb-8">Đối Tác Uy Tín</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-opacity">
-            {/* Mock logo for Dai-ichi Life */}
-            <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all font-bold text-2xl">
-              <ShieldCheck className="text-red-600" />
-              <span className="tracking-tighter">DAI-ICHI LIFE</span>
-            </div>
-            {/* More mock logos placeholder */}
-            <div className="h-8 md:h-12 w-32 bg-gray-300 rounded animate-pulse"></div>
-            <div className="h-8 md:h-12 w-32 bg-gray-300 rounded animate-pulse"></div>
-            <div className="h-8 md:h-12 w-32 bg-gray-300 rounded animate-pulse"></div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4">Quy Trình Tham Gia</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Đơn giản, minh bạch và hoàn toàn trực tuyến để bạn tiết kiệm thời gian.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto relative text-center">
+            {steps.map((step, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2 }}
+                className="flex flex-col items-center relative z-10"
+              >
+                <div className="w-20 h-20 rounded-full bg-rose-400 flex items-center justify-center shadow-lg border-4 border-white mb-6">
+                  {step.icon}
+                </div>
+                <h3 className="text-xl font-bold text-brand-text mb-2">Bước {idx + 1}: <br /> {step.title}</h3>
+                <p className="text-gray-600 text-sm px-4">{step.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Latest Blogs Section */}
-      <section className="py-20 bg-gray-50">
+      {/* 4. Tại sao chọn chúng tôi Section */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <span className="text-rose-500 font-semibold tracking-wider uppercase text-sm">Cập nhật</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mt-2">Kiến Thức Mới Nhất</h2>
+          <div className="flex flex-col lg:flex-row items-center gap-16 max-w-6xl mx-auto">
+            <div className="lg:w-1/2">
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}>
+                <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-6">Trải Nghiệm Dịch Vụ Khác Biệt</h2>
+                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                  Chúng tôi không chỉ bán hợp đồng bảo hiểm. Chúng tôi trao cho bạn sự an tâm, cam kết đồng hành và đứng ra bảo vệ quyền lợi hợp pháp của bạn khi rủi ro xảy ra.
+                </p>
+                <ul className="space-y-6">
+                  <li className="flex items-start gap-4">
+                    <div className="bg-brand-mint/30 p-3 rounded-full"><Clock className="text-emerald-600 w-6 h-6" /></div>
+                    <div>
+                      <h4 className="font-bold text-xl text-brand-text">Hỗ trợ siêu tốc</h4>
+                      <p className="text-gray-600">Thủ tục bảo lãnh viện phí chỉ trong vòng chưa đầy 1 giờ đồng hồ.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="bg-brand-pink/50 p-3 rounded-full"><ShieldCheck className="text-rose-600 w-6 h-6" /></div>
+                    <div>
+                      <h4 className="font-bold text-xl text-brand-text">Bảo vệ quyền lợi</h4>
+                      <p className="text-gray-600">Luôn đứng về phía khách hàng để tối đa hóa số tiền bồi thường.</p>
+                    </div>
+                  </li>
+                </ul>
+              </motion.div>
             </div>
-            <Link href="/blog" className="hidden md:flex items-center gap-2 text-rose-500 font-semibold hover:text-rose-600 transition-colors">
-              Xem tất cả <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="lg:w-1/2">
+              <div className="bg-gray-100 rounded-3xl h-96 w-full flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center shadow-xl">
+                {/* Placeholder image representation */}
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockBlogs.map((blog) => (
-              <Link key={blog.id} href={`/blog/${blog.id}`} className="group h-full">
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 h-full flex flex-col"
-                >
-                  <div className="h-56 overflow-hidden relative">
-                    <div className="absolute inset-0 bg-brand-pink/20 z-10 group-hover:opacity-0 transition-opacity"></div>
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+      {/* 5. Feedback Khách Hàng Section */}
+      <section className="py-24 bg-brand-mint/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4">Khách Hàng Nói Gì</h2>
+            <div className="w-24 h-1 bg-emerald-400 mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {Feedbacks.map((fb, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 relative"
+              >
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-600 italic mb-6 leading-relaxed">"{fb.text}"</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">
+                    {fb.name.charAt(0)}
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <span className="text-sm text-gray-400 font-medium mb-3 block">{blog.date}</span>
-                    <h3 className="text-xl font-bold text-brand-text mb-3 group-hover:text-rose-500 transition-colors line-clamp-2">
-                      {blog.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3 flex-grow">
-                      {blog.excerpt}
-                    </p>
-                    <span className="text-brand-mint font-semibold uppercase text-sm tracking-wider flex items-center gap-1 mt-auto">
-                      Đọc tiếp <ArrowRight className="w-4 h-4" />
-                    </span>
+                  <div>
+                    <h4 className="font-bold text-brand-text">{fb.name}</h4>
+                    <span className="text-sm text-gray-500">{fb.role}</span>
                   </div>
-                </motion.div>
-              </Link>
+                </div>
+              </motion.div>
             ))}
-          </div>
-
-          <div className="mt-8 text-center md:hidden">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-rose-500 font-semibold hover:text-rose-600 transition-colors">
-              Xem tất cả bài viết <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
