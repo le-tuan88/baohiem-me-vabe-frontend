@@ -1,5 +1,5 @@
 import * as motion from "framer-motion/client";
-import { CheckCircle2, MessageSquare, FileText, CheckCircle, ArrowRight, ShieldCheck } from "lucide-react";
+import { CheckCircle2, MessageSquare, FileText, CheckCircle, ArrowRight, ShieldCheck, HeartHandshake } from "lucide-react";
 import Link from "next/link";
 import FeeCalculator from "@/components/FeeCalculator";
 
