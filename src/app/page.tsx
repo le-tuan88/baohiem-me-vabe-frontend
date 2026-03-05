@@ -1,3 +1,5 @@
+"use client";
+
 import * as motion from "framer-motion/client";
 import { ShieldCheck, HeartHandshake, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
