@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, UserCheck, Clock, ArrowRight, Star, HeartHandshake, Baby, Users, FileText } from "lucide-react";
+import { ShieldCheck, UserCheck, Clock, ArrowRight, Star, HeartHandshake, Baby, Users, FileText, Shield } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -45,8 +45,8 @@ export default function Home() {
 
   return (
     <div className="w-full relative overflow-hidden">
-      {/* 1. Hero Section (Split Screen) */}
-      <section className="relative pt-6 md:pt-24 pb-20 bg-gradient-to-br from-brand-pink/10 to-brand-mint/10 overflow-hidden">
+      {/* 1. Hero Section (Split Screen - 3D Glassmorphism) */}
+      <section className="relative pt-4 md:pt-24 pb-20 overflow-hidden">
         <div className="container mx-auto px-4 h-full relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
 
@@ -55,48 +55,63 @@ export default function Home() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2 flex flex-col gap-2 md:gap-4 z-10"
+              className="w-full lg:w-1/2 flex flex-col gap-3 md:gap-5 z-10"
             >
-              <span className="bg-rose-100 text-rose-600 px-4 py-2 rounded-full font-bold text-sm md:text-base w-fit inline-block mb-1">
-                Giải pháp bảo hiểm thai sản & sức khỏe toàn diện
+              <span className="bg-orange-100 text-orange-700 px-4 py-2 rounded-full font-bold text-sm md:text-base w-fit inline-block mb-1 shadow-sm">
+                ✨ Giải Pháp Bảo Vệ Kép
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-text leading-none mt-0 mb-3 tracking-tight">
-                Đồng hành cùng Mẹ, <br /> <span className="text-sky-500">An tâm cho Bé</span>
+                An Tâm Cho Mẹ, <br /> <span className="text-teal-600">Vững Bước Cho Con</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-xl font-medium leading-relaxed">
-                Bảo Trâm mang đến các gói bảo hiểm được thiết kế riêng, bảo vệ sức khỏe cho mẹ bầu và sự phát triển của bé yêu.
+                Bảo Trâm thiết kế riêng các gói bảo hiểm thai sản và sức khỏe cao cấp. Luôn kề vai sát cánh, bảo lãnh viện phí siêu tốc giúp mẹ bầu tận hưởng thai kỳ trọn vẹn.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
-                <a href="https://zalo.me/0909129916" target="_blank" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-3xl font-bold text-lg shadow-lg hover:shadow-rose-600/50 transition-all flex justify-center items-center gap-2">
-                  Nhận Tư Vấn Ngay
+                <a href="https://zalo.me/0909129916" target="_blank" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-teal-600/50 transition-all flex justify-center items-center gap-2">
+                  Nhận Kế Hoạch Miễn Phí
                 </a>
-                <Link href="/bao-hiem-thai-san" className="bg-transparent border-2 border-brand-text text-brand-text hover:bg-brand-text hover:text-white px-8 py-4 rounded-3xl font-bold text-lg transition-all flex justify-center items-center">
-                  Tìm Hiểu Thêm
+                <Link href="/bao-hiem-thai-san" className="bg-transparent border-2 border-slate-300 text-gray-700 hover:bg-slate-50 px-8 py-4 rounded-2xl font-bold text-lg transition-all flex justify-center items-center backdrop-blur-sm">
+                  Xem Quyền Lợi
                 </Link>
               </div>
             </motion.div>
 
-            {/* Cột phải (Hình ảnh Blob) */}
+            {/* Cột phải (Hình ảnh & Floating Card) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-full lg:w-1/2 relative mt-8 lg:mt-0"
             >
-              <div className="relative w-full aspect-square max-w-md mx-auto rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden shadow-2xl border-4 border-white">
-                <Image
-                  src="/hero-mevabe.jpg"
-                  alt="Bảo Trâm Dai-ichi Life"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-              </div>
+              <div className="relative">
+                <div className="relative w-full aspect-square max-w-md mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl">
+                  <Image
+                    src="/hero-mevabe.jpg"
+                    alt="Bảo Trâm Dai-ichi Life"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
+                  {/* Subtle overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
 
-              {/* Decorative elements behind blob */}
-              <div className="absolute top-10 -left-10 w-24 h-24 bg-brand-pink rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
-              <div className="absolute top-10 -right-10 w-24 h-24 bg-brand-mint rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
-              <div className="absolute -bottom-10 left-20 w-32 h-32 bg-sky-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000"></div>
+                {/* Floating Glassmorphism Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="absolute -bottom-6 -left-2 md:-left-6 bg-white/80 backdrop-blur-md p-4 px-6 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 z-20"
+                >
+                  <div className="bg-teal-100 p-3 rounded-full">
+                    <Shield className="w-8 h-8 text-teal-600" />
+                  </div>
+                  <div>
+                    <span className="block font-extrabold text-brand-text text-lg">Bảo lãnh viện phí</span>
+                    <span className="block text-teal-600 font-bold text-sm">Hỗ trợ 24/7 trực tuyến</span>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
