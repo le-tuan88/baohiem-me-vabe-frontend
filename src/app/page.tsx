@@ -45,42 +45,60 @@ export default function Home() {
 
   return (
     <div className="w-full relative overflow-hidden">
-      {/* 1. Hero Section */}
-      <section className="relative w-full h-[85vh] md:h-screen overflow-hidden pt-0">
-        <Image
-          src="/hero-mevabe.jpg"
-          alt="Bảo Trâm Dai-ichi Life"
-          fill
-          className="object-cover object-center -z-10"
-          priority
-        />
-        <div className="absolute inset-0 bg-slate-900/40 z-0"></div>
+      {/* 1. Hero Section (Split Screen) */}
+      <section className="relative pt-6 md:pt-24 pb-20 bg-gradient-to-br from-brand-pink/10 to-brand-mint/10 overflow-hidden">
+        <div className="container mx-auto px-4 h-full relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
 
-        <div className="container mx-auto px-4 h-full relative z-10 flex items-start md:items-center pt-[104px] md:pt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto flex flex-col items-center text-center mt-4 md:mt-0"
-          >
-            <span className="bg-white/20 text-white border border-white/30 backdrop-blur-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm mb-4 inline-block">
-              Thai sản - Sức khỏe - Bình an
-            </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none md:leading-tight mt-0 mb-3">
-              Bảo Trâm Đồng Hành, <br /> <span className="text-pink-300">Nâng Niu Hạnh Phúc</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
-              Giải pháp bảo hiểm thiết kế riêng cho Mẹ bầu và Bé yêu, cho hành trình làm mẹ trọn vẹn an vui.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
-              <a href="https://zalo.me/0909129916" target="_blank" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-3xl font-bold text-lg shadow-lg hover:shadow-rose-600/50 transition-all flex justify-center items-center gap-2">
-                Tư vấn ngay
-              </a>
-              <Link href="/bao-hiem-thai-san" className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-3xl font-bold text-lg transition-all flex justify-center items-center">
-                Tìm hiểu thêm
-              </Link>
-            </div>
-          </motion.div>
+            {/* Cột trái (Nội dung) */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2 flex flex-col gap-2 md:gap-4 z-10"
+            >
+              <span className="bg-rose-100 text-rose-600 px-4 py-2 rounded-full font-bold text-sm md:text-base w-fit inline-block mb-1">
+                Giải pháp bảo hiểm thai sản & sức khỏe toàn diện
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-text leading-none mt-0 mb-3 tracking-tight">
+                Đồng hành cùng Mẹ, <br /> <span className="text-sky-500">An tâm cho Bé</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-xl font-medium leading-relaxed">
+                Bảo Trâm mang đến các gói bảo hiểm được thiết kế riêng, bảo vệ sức khỏe cho mẹ bầu và sự phát triển của bé yêu.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
+                <a href="https://zalo.me/0909129916" target="_blank" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-3xl font-bold text-lg shadow-lg hover:shadow-rose-600/50 transition-all flex justify-center items-center gap-2">
+                  Nhận Tư Vấn Ngay
+                </a>
+                <Link href="/bao-hiem-thai-san" className="bg-transparent border-2 border-brand-text text-brand-text hover:bg-brand-text hover:text-white px-8 py-4 rounded-3xl font-bold text-lg transition-all flex justify-center items-center">
+                  Tìm Hiểu Thêm
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Cột phải (Hình ảnh Blob) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full lg:w-1/2 relative mt-8 lg:mt-0"
+            >
+              <div className="relative w-full aspect-square max-w-md mx-auto rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden shadow-2xl border-4 border-white">
+                <Image
+                  src="/hero-mevabe.jpg"
+                  alt="Bảo Trâm Dai-ichi Life"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+
+              {/* Decorative elements behind blob */}
+              <div className="absolute top-10 -left-10 w-24 h-24 bg-brand-pink rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
+              <div className="absolute top-10 -right-10 w-24 h-24 bg-brand-mint rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
+              <div className="absolute -bottom-10 left-20 w-32 h-32 bg-sky-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000"></div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
