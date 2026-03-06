@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, UserCheck, Clock, ArrowRight, Star, HeartHandshake, Baby, Users, FileText } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const products = [
@@ -45,27 +46,38 @@ export default function Home() {
   return (
     <div className="w-full relative overflow-hidden">
       {/* 1. Hero Section */}
-      <section className="relative w-full py-24 lg:py-32 bg-gradient-to-br from-brand-pink/40 to-brand-mint/20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative w-full h-[85vh] md:h-screen overflow-hidden pt-0">
+        <Image
+          src="/hero-mevabe.jpg"
+          alt="Bảo Trâm Dai-ichi Life"
+          fill
+          className="object-cover object-center -z-10"
+          priority
+        />
+        <div className="absolute inset-0 bg-slate-900/40 z-0"></div>
+
+        <div className="container mx-auto px-4 h-full relative z-10 flex items-start md:items-center pt-[104px] md:pt-0">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto flex flex-col items-center text-center mt-4 md:mt-0"
           >
-            <span className="text-rose-500 font-bold uppercase tracking-widest text-sm md:text-base mb-4 block">Đại lý Dai-ichi Life Việt Nam</span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-brand-text mb-6 leading-tight">
-              An Tâm Sức Khỏe <br /> <span className="text-rose-500">Trọn Vẹn Tương Lai</span>
+            <span className="bg-white/20 text-white border border-white/30 backdrop-blur-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm mb-4 inline-block">
+              Thai sản - Sức khỏe - Bình an
+            </span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none md:leading-tight mt-0 mb-3">
+              Bảo Trâm Đồng Hành, <br /> <span className="text-pink-300">Nâng Niu Hạnh Phúc</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
-              Chuyên gia tư vấn các giải pháp bảo hiểm thai sản, sức khỏe nhi khoa và thiết kế các gói bảo vệ toàn diện, phù hợp nhất với tài chính gia đình bạn.
+            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
+              Giải pháp bảo hiểm thiết kế riêng cho Mẹ bầu và Bé yêu, cho hành trình làm mẹ trọn vẹn an vui.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="https://zalo.me/0909129916" target="_blank" className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-rose-300 transition-all flex justify-center items-center gap-2">
-                Tư Vấn Ngay 0909.129.916
+            <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+              <a href="https://zalo.me/0909129916" target="_blank" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-3xl font-bold text-lg shadow-lg hover:shadow-rose-600/50 transition-all flex justify-center items-center gap-2">
+                Tư vấn ngay
               </a>
-              <Link href="/bao-hiem-thai-san" className="bg-white border-2 border-brand-mint text-brand-text hover:bg-brand-mint/50 px-8 py-4 rounded-full font-bold text-lg transition-all flex justify-center items-center">
-                Tìm Hiểu Gói Thai Sản
+              <Link href="/bao-hiem-thai-san" className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-3xl font-bold text-lg transition-all flex justify-center items-center">
+                Tìm hiểu thêm
               </Link>
             </div>
           </motion.div>
