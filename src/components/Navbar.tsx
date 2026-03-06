@@ -40,7 +40,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <a
-                        href="https://zalo.me/0901281386"
+                        href="https://zalo.me/0909129916"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-brand-mint text-brand-text hover:bg-emerald-300 px-6 py-3 rounded-full font-bold shadow-md transition-all flex items-center gap-2 ml-2"
@@ -79,13 +79,13 @@ export default function Navbar() {
                                 </Link>
                             ))}
                             <a
-                                href="https://zalo.me/0901281386"
+                                href="https://zalo.me/0909129916"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setIsOpen(false)}
                                 className="mt-4 mb-2 bg-rose-500 text-white hover:bg-rose-600 px-5 py-4 rounded-xl font-bold shadow-md transition-all flex justify-center items-center gap-2 text-lg"
                             >
-                                <Phone className="w-6 h-6" /> Nhắn Zalo: 0901281386
+                                <Phone className="w-6 h-6" /> Nhắn Zalo: 0909.129.916
                             </a>
                         </nav>
                     </motion.div>

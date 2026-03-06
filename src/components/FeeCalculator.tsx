@@ -108,7 +108,7 @@ export default function FeeCalculator() {
                 {/* CTA Zalo */}
                 <div className="mt-8 text-center pt-8 border-t border-gray-100">
                     <a
-                        href="https://zalo.me/0901281386"
+                        href="https://zalo.me/0909129916"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex flex-col sm:flex-row items-center gap-3 bg-[#0068FF] hover:bg-[#0055D4] text-white px-8 py-4 rounded-full font-bold shadow-[0_8px_20px_0_rgba(0,104,255,0.3)] hover:shadow-[0_8px_25px_0_rgba(0,104,255,0.5)] transition-all hover:-translate-y-1"
@@ -119,7 +119,7 @@ export default function FeeCalculator() {
                                 <text x="12" y="16.5" fontSize="11" fontWeight="bold" fontFamily="Arial" fill="currentColor" textAnchor="middle">Zalo</text>
                             </svg>
                         </div>
-                        <span className="text-sm md:text-base">Kết nối Zalo với Nguyễn Khôi để nhận bảng minh họa</span>
+                        <span className="text-sm md:text-base">Kết nối Zalo với Bảo Trâm để nhận bảng minh họa</span>
                     </a>
                 </div>
             </div>

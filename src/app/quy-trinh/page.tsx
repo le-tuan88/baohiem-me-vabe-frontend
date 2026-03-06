@@ -50,7 +50,7 @@ export default function ProcessPage() {
                 <div className="mt-16 text-center">
                     <h3 className="text-2xl font-bold mb-4">Đối với Mạng lưới Bảo Lãnh Chi Trực Tiếp (Bảo Lãnh Viện Phí)</h3>
                     <p className="text-gray-600 max-w-2xl mx-auto mb-8">Tại hơn 600 cơ sở y tế (Vinmec, Thu Cúc, Tâm Anh, Pháp Việt...), khách hàng chỉ cần xuất trình Thẻ Bảo Hiểm Cứng/App để được trừ tiền trực tiếp trước khi ra viện mà không cần nộp hồ sơ.</p>
-                    <a href="https://zalo.me/0901281386" target="_blank" className="inline-flex items-center gap-2 bg-brand-pink text-rose-600 hover:bg-rose-200 px-8 py-4 rounded-full font-bold shadow-sm transition-all text-lg">
+                    <a href="https://zalo.me/0909129916" target="_blank" className="inline-flex items-center gap-2 bg-brand-pink text-rose-600 hover:bg-rose-200 px-8 py-4 rounded-full font-bold shadow-sm transition-all text-lg">
                         Hỗ trợ lấy thẻ bảo lãnh <ArrowRight className="w-5 h-5" />
                     </a>
                 </div>

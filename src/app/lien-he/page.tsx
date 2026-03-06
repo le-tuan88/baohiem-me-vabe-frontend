@@ -17,7 +17,7 @@ export default function ContactPage() {
                             <ul className="space-y-8 mt-8">
                                 <li className="flex items-center gap-4">
                                     <Phone className="w-6 h-6 shrink-0" />
-                                    <span className="text-lg">0901 281 386</span>
+                                    <span className="text-lg">0909 129 916</span>
                                 </li>
                                 <li className="flex items-center gap-4">
                                     <Mail className="w-6 h-6 shrink-0" />
