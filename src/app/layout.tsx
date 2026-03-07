@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
+import "../styles/wordpress.css";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
