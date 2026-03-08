@@ -21,6 +21,13 @@ export default async function BlogPost({
         notFound();
     }
 
+    // Làm sạch nội dung: Đổi URL quản trị thành URL tương đối
+    // Quét cả http và https, có hoặc không có dấu gạch chéo ở cuối
+    const cleanContent = post.content.replace(
+        /https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g,
+        ''
+    );
+
     return (
         <div className="container mx-auto px-4 py-12 max-w-3xl">
             <h1 className="text-4xl font-bold text-brand-text mb-4">
@@ -43,8 +50,8 @@ export default async function BlogPost({
             )}
 
             <div
-                className="prose prose-pink max-w-none text-gray-700"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                className="prose prose-pink max-w-none text-gray-700 wp-content entry-content"
+                dangerouslySetInnerHTML={{ __html: cleanContent }}
             />
         </div>
     );
