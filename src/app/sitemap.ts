@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dynamicRoutes = posts.map((post: any) => ({
-            url: `${SITE_URL}/blog/${post.slug}`,
+            url: `${SITE_URL}/${post.slug}`,
             lastModified: new Date(post.modified || new Date()),
             changeFrequency: 'weekly',
             priority: 0.7,

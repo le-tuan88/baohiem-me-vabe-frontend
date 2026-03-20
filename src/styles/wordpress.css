@@ -244,3 +244,14 @@ details[open] .cau-faq-question::after {
         gap: 5px;
     }
 }
+
+/* ============================================ */
+/* BẢN FIX: ẢNH HIỂN THỊ TRONG BÀI VIẾT BỊ NHỎ */
+/* ============================================ */
+.wp-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 8px; /* For aesthetics */
+    margin: 1.5rem auto; /* Center alignment */
+    display: block;
+}

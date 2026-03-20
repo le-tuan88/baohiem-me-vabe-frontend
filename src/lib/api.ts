@@ -70,6 +70,7 @@ export async function getPostBySlug(slug: string) {
         title
         slug
         date
+        excerpt
         content
         featuredImage {
           node {

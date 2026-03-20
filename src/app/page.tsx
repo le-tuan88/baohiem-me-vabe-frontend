@@ -89,6 +89,7 @@ export default function Home() {
                     src="/hero-mevabe.jpg"
                     alt="Bảo Trâm Dai-ichi Life"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-center"
                     priority
                   />
