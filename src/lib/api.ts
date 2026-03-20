@@ -60,6 +60,24 @@ export async function getLatestPosts() {
 }
 
 /**
+ * Fetch all post slugs (dùng cho generateStaticParams - ISR)
+ */
+export async function getAllPostSlugs(): Promise<string[]> {
+  const query = `
+    query GetAllPostSlugs {
+      posts(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `;
+
+  const data = await fetchGraphQL(query);
+  return (data?.posts?.nodes || []).map((node: { slug: string }) => node.slug);
+}
+
+/**
  * Fetch a single post by its slug
  */
 export async function getPostBySlug(slug: string) {

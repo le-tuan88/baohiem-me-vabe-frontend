@@ -1,13 +1,22 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getPostBySlug } from "@/lib/api";
+import { getPostBySlug, getAllPostSlugs } from "@/lib/api";
 
-export const revalidate = 60; // ISR every 60 seconds
-export const dynamic = 'force-dynamic'; // Không prerender tĩnh khi build
+export const revalidate = 60; // ISR: revalidate sau 60 giây
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
+
+// Pre-build các trang bài viết khi deploy (ISR)
+export async function generateStaticParams() {
+    try {
+        const slugs = await getAllPostSlugs();
+        return (slugs || []).map((slug: string) => ({ slug }));
+    } catch {
+        return [];
+    }
+}
 
 // ============================================
 // generateMetadata: Tạo thẻ SEO động cho từng bài viết
@@ -78,11 +87,15 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
-    // Làm sạch nội dung: Đổi URL quản trị thành URL tương đối
-    const cleanContent = post.content.replace(
-        /https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g,
-        ''
-    );
+    // Làm sạch nội dung: Đổi TẤT CẢ URL WordPress (cả domain quản trị lẫn domain public) thành URL tương đối
+    // Điều này đảm bảo link trong bài viết sẽ navigate đúng sang trang Next.js tương ứng thay vì redirect về trang chủ
+    const cleanContent = post.content
+        // 1. Strip domain quản trị WordPress
+        .replace(/https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g, '')
+        // 2. Strip domain public WordPress (nếu WP public dùng cùng domain với Next.js, link sẽ là internal)
+        .replace(/https?:\/\/baohiemmevabe\.com\.vn/g, '')
+        // 3. Xử lý các URL http://, https:// có thể có cả www
+        .replace(/https?:\/\/www\.baohiemmevabe\.com\.vn/g, '');
 
     // JSON-LD Schema cho bài viết (Article)
     const jsonLd = {

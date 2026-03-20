@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { getLatestPosts } from "@/lib/api";
 
-export const revalidate = 60; // ISR every 60 seconds
-export const dynamic = 'force-dynamic'; // Không prerender tĩnh khi build
+export const revalidate = 60; // ISR: revalidate sau 60 giây
 
 export default async function BlogList() {
     const data = await getLatestPosts();

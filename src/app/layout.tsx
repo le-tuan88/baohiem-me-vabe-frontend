@@ -13,8 +13,14 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://baohiemmevabe.com.vn"),
-  title: "Bảo Hiểm Mẹ và Bé",
-  description: "Giải pháp bảo vệ toàn diện cho mẹ và bé bằng các gói bảo hiểm chất lượng.",
+  title: {
+    default: "Bảo Hiểm Mẹ và Bé | Dai-ichi Life",
+    template: "%s | Bảo Hiểm Mẹ và Bé",
+  },
+  description: "Giải pháp bảo vệ toàn diện cho mẹ và bé bằng các gói bảo hiểm chất lượng của Dai-ichi Life.",
+  alternates: {
+    canonical: "https://baohiemmevabe.com.vn/",
+  },
   openGraph: {
     title: "Bảo Hiểm Mẹ và Bé",
     description: "Giải pháp bảo vệ toàn diện cho mẹ và bé bằng các gói bảo hiểm chất lượng.",
