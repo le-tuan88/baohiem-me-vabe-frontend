@@ -86,7 +86,7 @@ export default function Home() {
               <div className="relative">
                 <div className="relative w-full aspect-square max-w-md mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl">
                   <Image
-                    src="/hero-mevabe.jpg"
+                    src="/images/hero-image.webp"
                     alt="Bảo Trâm Dai-ichi Life"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
