@@ -47,23 +47,23 @@ export default function Home() {
     <div className="w-full relative overflow-hidden">
       {/* 1. Hero Section (Split Screen - 3D Glassmorphism) */}
       <section className="relative pt-4 md:pt-24 pb-20 overflow-hidden">
-        <div className="container mx-auto px-4 h-full relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="container mx-auto px-4 h-full relative z-10 text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
 
             {/* Cột trái (Nội dung) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2 flex flex-col gap-3 md:gap-5 z-10"
+              className="w-full lg:w-1/2 flex flex-col gap-4 md:gap-5 z-10 items-center lg:items-start"
             >
               <span className="bg-orange-100 text-orange-700 px-4 py-2 rounded-full font-bold text-sm md:text-base w-fit inline-block mb-1 shadow-sm">
                 ✨ Giải Pháp Bảo Vệ Kép
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-text leading-none mt-0 mb-3 tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-text leading-tight mt-0 mb-2 tracking-tight">
                 An Tâm Cho Mẹ, <br /> <span className="text-teal-600">Vững Bước Cho Con</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-xl font-medium leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-lg font-medium leading-relaxed">
                 Bảo Trâm thiết kế riêng các gói bảo hiểm thai sản và sức khỏe cao cấp. Luôn kề vai sát cánh, bảo lãnh viện phí siêu tốc giúp mẹ bầu tận hưởng thai kỳ trọn vẹn.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
@@ -81,10 +81,10 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full lg:w-1/2 relative mt-8 lg:mt-0"
+              className="w-full lg:w-1/2 relative mt-8 lg:mt-0 flex justify-center lg:justify-end"
             >
-              <div className="relative">
-                <div className="relative w-full aspect-square max-w-md mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <div className="relative w-full max-w-lg">
+                <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
                   <Image
                     src="/images/hero-image.webp"
                     alt="Bảo Trâm Dai-ichi Life"
@@ -102,12 +102,12 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="absolute -bottom-6 -left-2 md:-left-6 bg-white/80 backdrop-blur-md p-4 px-6 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 z-20"
+                  className="absolute -bottom-6 -left-4 md:-left-8 bg-white/90 backdrop-blur-md p-4 px-6 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 z-20"
                 >
                   <div className="bg-teal-100 p-3 rounded-full">
                     <Shield className="w-8 h-8 text-teal-600" />
                   </div>
-                  <div>
+                  <div className="text-left">
                     <span className="block font-extrabold text-brand-text text-lg">Bảo lãnh viện phí</span>
                     <span className="block text-teal-600 font-bold text-sm">Hỗ trợ 24/7 trực tuyến</span>
                   </div>
