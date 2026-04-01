@@ -60,6 +60,60 @@ export async function getLatestPosts() {
 }
 
 /**
+ * Fetch paginated posts (cursor based)
+ */
+export async function getPaginatedPosts(first: number = 9, after: string = "", before: string = "", last: number | null = null) {
+  // Determine if we are paginating forwards or backwards
+  const isBackward = !!before && !!last;
+  
+  const query = `
+    query GetPaginatedPosts($first: Int, $last: Int, $after: String, $before: String) {
+      posts(
+        first: $first, 
+        last: $last, 
+        after: $after, 
+        before: $before, 
+        where: { orderby: { field: DATE, order: DESC } }
+      ) {
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+          startCursor
+          endCursor
+        }
+        nodes {
+          id
+          title
+          slug
+          date
+          excerpt
+          featuredImage {
+            node {
+              sourceUrl
+              altText
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const variables: Record<string, any> = {};
+  
+  if (isBackward) {
+    variables.last = last;
+    variables.before = before;
+  } else {
+    variables.first = first;
+    if (after) {
+      variables.after = after;
+    }
+  }
+
+  return fetchGraphQL(query, variables);
+}
+
+/**
  * Fetch all post slugs (dùng cho generateStaticParams - ISR)
  */
 export async function getAllPostSlugs(): Promise<string[]> {
