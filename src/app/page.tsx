@@ -177,38 +177,102 @@ export default function Home() {
       </section>
 
       {/* 4. Tại sao chọn chúng tôi Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gradient-to-b from-white to-brand-pink/5">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-16 max-w-6xl mx-auto">
-            <div className="lg:w-1/2">
-              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}>
-                <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-6">Trải Nghiệm Dịch Vụ Khác Biệt</h2>
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Chúng tôi không chỉ bán hợp đồng bảo hiểm. Chúng tôi trao cho bạn sự an tâm, cam kết đồng hành và đứng ra bảo vệ quyền lợi hợp pháp của bạn khi rủi ro xảy ra.
+            
+            {/* Cột trái (Hình ảnh & Floating Badge) - Chuyển sang trái để thay đổi nhịp độ layout */}
+            <div className="w-full lg:w-1/2 relative order-2 lg:order-1 flex justify-center mt-10 lg:mt-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full max-w-md lg:max-w-lg aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white"
+              >
+                <Image
+                  src="/images/service-experience.png"
+                  alt="Trải nghiệm dịch vụ Bảo Hiểm Mẹ và Bé"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+                
+                {/* Lớp overlay mỏng tạo chiều sâu */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-text/40 to-transparent"></div>
+              </motion.div>
+
+              {/* Floating Glassmorphism Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="absolute -bottom-6 -right-2 md:-right-8 bg-white/90 backdrop-blur-md p-5 px-6 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 z-20"
+              >
+                <div className="bg-rose-100 p-3 rounded-full flex-shrink-0">
+                  <HeartHandshake className="w-8 h-8 text-rose-500" />
+                </div>
+                <div className="text-left">
+                  <span className="block font-extrabold text-brand-text text-lg leading-tight">10+ Năm</span>
+                  <span className="block text-rose-500 font-bold text-sm">Đồng hành & Bảo vệ</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Cột phải (Nội dung) */}
+            <div className="w-full lg:w-1/2 order-1 lg:order-2">
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }} 
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="text-teal-600 font-bold tracking-wider uppercase text-sm mb-2 block">Giá Trị Cốt Lõi</span>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-brand-text mb-6 leading-tight">
+                  Trải Nghiệm Dịch Vụ <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Khác Biệt</span>
+                </h2>
+                <p className="text-gray-600 text-lg mb-10 leading-relaxed font-medium">
+                  Chúng tôi không chỉ là tư vấn tài chính. Chúng tôi trao cho bạn sự an tâm, cam kết đồng hành và đứng ra bảo vệ quyền lợi trọn vẹn của gia đình bạn trên mỗi chặng đường.
                 </p>
-                <ul className="space-y-6">
-                  <li className="flex items-start gap-4">
-                    <div className="bg-brand-mint/30 p-3 rounded-full"><Clock className="text-emerald-600 w-6 h-6" /></div>
+                
+                <ul className="space-y-8">
+                  <motion.li 
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="flex items-start gap-5 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-emerald-100"
+                  >
+                    <div className="bg-emerald-100 p-4 rounded-2xl flex-shrink-0 mt-1 shadow-inner"><Clock className="text-emerald-600 w-7 h-7" /></div>
                     <div>
-                      <h4 className="font-bold text-xl text-brand-text">Hỗ trợ siêu tốc</h4>
-                      <p className="text-gray-600">Thủ tục bảo lãnh viện phí chỉ trong vòng chưa đầy 1 giờ đồng hồ.</p>
+                      <h4 className="font-extrabold text-xl text-brand-text mb-1">Hỗ trợ khẩn cấp 24/7 siêu tốc</h4>
+                      <p className="text-gray-600 leading-relaxed">Luôn có mặt lúc bạn cần nhất. Thủ tục bảo lãnh viện phí hay xử lý hồ sơ online hoàn tất chỉ trong vòng 1-2 giờ đồng hồ.</p>
                     </div>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="bg-brand-pink/50 p-3 rounded-full"><ShieldCheck className="text-rose-600 w-6 h-6" /></div>
+                  </motion.li>
+                  
+                  <motion.li 
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="flex items-start gap-5 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-rose-100"
+                  >
+                    <div className="bg-rose-100 p-4 rounded-2xl flex-shrink-0 mt-1 shadow-inner"><ShieldCheck className="text-rose-600 w-7 h-7" /></div>
                     <div>
-                      <h4 className="font-bold text-xl text-brand-text">Bảo vệ quyền lợi</h4>
-                      <p className="text-gray-600">Luôn đứng về phía khách hàng để tối đa hóa số tiền bồi thường.</p>
+                      <h4 className="font-extrabold text-xl text-brand-text mb-1">Bảo vệ tối đa quyền lợi khách hàng</h4>
+                      <p className="text-gray-600 leading-relaxed">Tuyệt đối minh bạch điều khoản. Am hiểu y khoa và pháp chế bảo hiểm để tranh đấu tối đa hóa quyền lợi bồi thường cho bạn.</p>
                     </div>
-                  </li>
+                  </motion.li>
+
+                  <motion.li 
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="flex items-start gap-5 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-indigo-100"
+                  >
+                    <div className="bg-indigo-100 p-4 rounded-2xl flex-shrink-0 mt-1 shadow-inner"><Users className="text-indigo-600 w-7 h-7" /></div>
+                    <div>
+                      <h4 className="font-extrabold text-xl text-brand-text mb-1">Tư vấn tận tâm như người nhà</h4>
+                      <p className="text-gray-600 leading-relaxed">Thiết kế gói sản phẩm "Vừa vặn" nhất với tài chính gia đình. Không ép dồn, không chào mời những sản phẩm không cần thiết.</p>
+                    </div>
+                  </motion.li>
                 </ul>
               </motion.div>
             </div>
-            <div className="lg:w-1/2">
-              <div className="bg-gray-100 rounded-3xl h-96 w-full flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center shadow-xl">
-                {/* Placeholder image representation */}
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
