@@ -23,16 +23,16 @@ export default function Navbar() {
 
     return (
         <header className="bg-brand-pink text-brand-text shadow-sm sticky top-0 z-[100]">
-            <div className="container mx-auto px-4 h-20 flex items-center justify-between relative z-50">
-                <Link href="/" className="flex items-center gap-3 font-bold text-2xl">
+            <div className="container mx-auto px-4 py-3 flex items-center justify-between relative z-50">
+                <Link href="/" className="flex items-center gap-4 font-bold text-2xl">
                     <Image 
                         src="/images/favicon.ico" 
                         alt="Bảo Hiểm Mẹ và Bé Logo" 
-                        width={60} 
-                        height={60} 
-                        className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                        width={120} 
+                        height={120} 
+                        className="w-20 h-20 md:w-28 md:h-28 object-contain"
                     />
-                    <span className="leading-tight">Mẹ & Bé</span>
+                    <span className="leading-tight text-3xl">Mẹ & Bé</span>
                 </Link>
 
                 {/* Desktop Menu */}
