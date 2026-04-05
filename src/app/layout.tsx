@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     template: "%s | Bảo Hiểm Mẹ và Bé",
   },
   description: "Giải pháp bảo vệ toàn diện cho mẹ và bé bằng các gói bảo hiểm chất lượng của Dai-ichi Life.",
+  icons: {
+    icon: "/images/favicon.ico",
+    shortcut: "/images/favicon.ico",
+    apple: "/images/favicon.ico",
+  },
   alternates: {
     canonical: "https://baohiemmevabe.com.vn/",
   },

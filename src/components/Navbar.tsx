@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Heart, Phone } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +24,15 @@ export default function Navbar() {
     return (
         <header className="bg-brand-pink text-brand-text shadow-sm sticky top-0 z-[100]">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between relative z-50">
-                <Link href="/" className="flex items-center gap-2 font-bold text-2xl">
-                    <Heart className="text-rose-500 fill-rose-500 w-8 h-8" />
-                    <span>Mẹ & Bé</span>
+                <Link href="/" className="flex items-center gap-3 font-bold text-2xl">
+                    <Image 
+                        src="/images/favicon.ico" 
+                        alt="Bảo Hiểm Mẹ và Bé Logo" 
+                        width={60} 
+                        height={60} 
+                        className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                    />
+                    <span className="leading-tight">Mẹ & Bé</span>
                 </Link>
 
                 {/* Desktop Menu */}
