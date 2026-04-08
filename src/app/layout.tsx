@@ -54,16 +54,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // JSON-LD: Thông tin website - KHÔNG bao gồm SearchAction vì frontend không có search
+  // (SearchAction sẽ làm Google crawl ?s={search_term_string} và gây lỗi GSC)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Bảo Hiểm Mẹ và Bé",
     "url": "https://baohiemmevabe.com.vn/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://baohiemmevabe.com.vn/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "Giải pháp bảo vệ toàn diện cho mẹ và bé bằng các gói bảo hiểm chất lượng của Dai-ichi Life.",
+    "inLanguage": "vi-VN"
   };
 
   return (

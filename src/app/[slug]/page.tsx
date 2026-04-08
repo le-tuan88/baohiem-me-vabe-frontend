@@ -90,11 +90,13 @@ export default async function BlogPost({ params }: Props) {
     // Làm sạch nội dung: Đổi TẤT CẢ URL WordPress (cả domain quản trị lẫn domain public) thành URL tương đối
     // Điều này đảm bảo link trong bài viết sẽ navigate đúng sang trang Next.js tương ứng thay vì redirect về trang chủ
     const cleanContent = post.content
-        // 1. Strip domain quản trị WordPress
+        // 1. Strip domain quản trị WordPress cũ
         .replace(/https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g, '')
-        // 2. Strip domain public WordPress (nếu WP public dùng cùng domain với Next.js, link sẽ là internal)
+        // 2. Strip domain quản trị WordPress mới (quanly.baohiemmevabe.com.vn)
+        .replace(/https?:\/\/quanly\.baohiemmevabe\.com\.vn/g, '')
+        // 3. Strip domain public WordPress (nếu WP public dùng cùng domain với Next.js, link sẽ là internal)
         .replace(/https?:\/\/baohiemmevabe\.com\.vn/g, '')
-        // 3. Xử lý các URL http://, https:// có thể có cả www
+        // 4. Xử lý các URL có www
         .replace(/https?:\/\/www\.baohiemmevabe\.com\.vn/g, '');
 
     // JSON-LD Schema cho bài viết (Article)

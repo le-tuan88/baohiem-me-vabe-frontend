@@ -1,7 +1,24 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { getPaginatedPosts } from "@/lib/api";
 
 export const revalidate = 60; // ISR: revalidate sau 60 giây
+
+export const metadata: Metadata = {
+    title: "Kiến thức Mẹ và Bé | Bảo Hiểm Mẹ và Bé",
+    description: "Tổng hợp kiến thức về bảo hiểm thai sản, sức khỏe mẹ và bé, nhi khoa từ các chuyên gia Dai-ichi Life.",
+    alternates: {
+        canonical: "https://baohiemmevabe.com.vn/blog/",
+    },
+    openGraph: {
+        title: "Kiến thức Mẹ và Bé",
+        description: "Tổng hợp kiến thức về bảo hiểm thai sản, sức khỏe mẹ và bé từ Dai-ichi Life.",
+        url: "https://baohiemmevabe.com.vn/blog/",
+        type: "website",
+        locale: "vi_VN",
+        siteName: "Bảo Hiểm Mẹ và Bé",
+    },
+};
 
 type Props = {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

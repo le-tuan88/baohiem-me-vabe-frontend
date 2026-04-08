@@ -6,43 +6,43 @@ const SITE_URL = 'https://baohiemmevabe.com.vn';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticRoutes: MetadataRoute.Sitemap = [
         {
-            url: SITE_URL,
+            url: `${SITE_URL}/`,
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 1.0,
         },
         {
-            url: `${SITE_URL}/bao-hiem-thai-san`,
+            url: `${SITE_URL}/bao-hiem-thai-san/`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
-            url: `${SITE_URL}/nhi-khoa`,
+            url: `${SITE_URL}/nhi-khoa/`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
-            url: `${SITE_URL}/combo-gia-dinh`,
+            url: `${SITE_URL}/combo-gia-dinh/`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
-            url: `${SITE_URL}/blog`,
+            url: `${SITE_URL}/blog/`,
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 0.8,
         },
         {
-            url: `${SITE_URL}/quy-trinh`,
+            url: `${SITE_URL}/quy-trinh/`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${SITE_URL}/lien-he`,
+            url: `${SITE_URL}/lien-he/`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 0.8,
