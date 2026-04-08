@@ -21,12 +21,16 @@ export default async function BlogPost({
         notFound();
     }
 
-    // Làm sạch nội dung: Đổi URL quản trị thành URL tương đối
-    // Quét cả http và https, có hoặc không có dấu gạch chéo ở cuối
-    const cleanContent = post.content.replace(
-        /https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g,
-        ''
-    );
+    // Làm sạch nội dung: Đổi TẤT CẢ URL WordPress thành URL tương đối để proxy hoạt động và link nội bộ đúng
+    const cleanContent = post.content
+        // 1. Strip domain quản trị WordPress cũ
+        .replace(/https?:\/\/quanly\.tuvandai-ichi-life\.com\.vn/g, '')
+        // 2. Strip domain quản trị WordPress mới (quanly.baohiemmevabe.com.vn)
+        .replace(/https?:\/\/quanly\.baohiemmevabe\.com\.vn/g, '')
+        // 3. Strip domain public WordPress (nếu WP public dùng cùng domain với Next.js, link sẽ là internal)
+        .replace(/https?:\/\/baohiemmevabe\.com\.vn/g, '')
+        // 4. Xử lý các URL có www
+        .replace(/https?:\/\/www\.baohiemmevabe\.com\.vn/g, '');
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-3xl">

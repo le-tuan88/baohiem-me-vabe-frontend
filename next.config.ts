@@ -20,6 +20,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/wp-content/:path*",
+        destination: "https://quanly.baohiemmevabe.com.vn/wp-content/:path*",
+      },
+      {
+        source: "/wp-includes/:path*",
+        destination: "https://quanly.baohiemmevabe.com.vn/wp-includes/:path*",
+      },
+    ];
+  },
 };
+
 
 export default nextConfig;
