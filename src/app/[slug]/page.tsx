@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/api";
+import WpContent from "@/components/WpContent";
 
 export const revalidate = 60; // ISR: revalidate sau 60 giây
 
@@ -154,10 +155,7 @@ export default async function BlogPost({ params }: Props) {
                     </div>
                 )}
 
-                <div
-                    className="prose prose-pink max-w-none text-gray-700 wp-content entry-content"
-                    dangerouslySetInnerHTML={{ __html: cleanContent }}
-                />
+                <WpContent html={cleanContent} />
             </div>
         </>
     );
