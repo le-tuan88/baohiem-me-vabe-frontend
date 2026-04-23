@@ -98,7 +98,9 @@ export default async function BlogPost({ params }: Props) {
         // 3. Strip domain public WordPress (nếu WP public dùng cùng domain với Next.js, link sẽ là internal)
         .replace(/https?:\/\/baohiemmevabe\.com\.vn/g, '')
         // 4. Xử lý các URL có www
-        .replace(/https?:\/\/www\.baohiemmevabe\.com\.vn/g, '');
+        .replace(/https?:\/\/www\.baohiemmevabe\.com\.vn/g, '')
+        // 5. Xoá bỏ mọi thẻ script JSON-LD có sẵn trong content của WP để tránh đụng độ và lỗi cú pháp
+        .replace(/<script[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '');
 
     // JSON-LD Schema cho bài viết (Article)
     const jsonLd = {
@@ -133,7 +135,7 @@ export default async function BlogPost({ params }: Props) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
             />
             <div className="container mx-auto px-4 py-12 max-w-3xl">
                 <h1 className="text-4xl font-bold text-brand-text mb-4">
